@@ -1,6 +1,6 @@
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import { useEffect, useRef, useState } from 'react';
-import { AppState, AppStateStatus } from 'react-native';
+import { AppState } from 'react-native';
 import type { RootState, AppDispatch } from '../store';
 
 // Use throughout your app instead of plain `useDispatch` and `useSelector`

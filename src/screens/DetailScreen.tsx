@@ -38,7 +38,7 @@ const DetailScreen = ({ route }: DetailScreenProps) => {
         <Text style={styles.description}>{product.description}</Text>
         
         <Text style={styles.stockInfo}>
-          Availability: <Text style={{ fontWeight: '600' }}>{product.stock} units</Text>
+          Availability: <Text style={styles.stockBold}>{product.stock} units</Text>
         </Text>
 
         <TouchableOpacity 
@@ -134,6 +134,9 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#666',
     marginBottom: 32,
+  },
+  stockBold: {
+    fontWeight: '600',
   },
   favoriteBtn: {
     backgroundColor: '#007AFF',
