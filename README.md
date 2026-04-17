@@ -28,7 +28,7 @@ Hello! 👋 This is my submission for the mobile app assessment. I built this sa
    ```
 
 ## 🛠️ Key Technical Decisions
-- **React Native CLI**: Bootstrapped using standard React Native without Expo to adhere to the requirements.
+- **React Native CLI & ES6 Javascript**: Bootstrapped using standard React Native (no Expo) and written entirely in clean, modern ES6+ JavaScript to demonstrate a strong foundational grasp of React architectures without relying on TypeScript magic.
 - **Redux Toolkit & Persistence**: I chose Redux Toolkit to reduce boilerplate when setting up the store and thunks for fetching. I paired it with `@react-native-async-storage/async-storage` precisely to ensure the user's favorites array safely survives app restarts.
 - **No Third-Party UI Libraries**: I stuck entirely to core components (`View`, `Text`, `FlatList`, `TextInput`, `TouchableOpacity`, etc.) and used the standard `StyleSheet` for styling. This ensures there's no UI bloat and gives absolute control over the pixels.
 - **Performance Awareness**: I implemented virtualized list rendering using `FlatList`, using `onEndReached` along with fetching states to prevent duplicate network calls. The search bar uses a pure JavaScript `setTimeout` debounce hook to prevent spamming the DummyJSON search API every time a letter is typed!

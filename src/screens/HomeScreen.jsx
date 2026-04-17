@@ -1,16 +1,10 @@
 import React, { useEffect, useCallback } from 'react';
 import { View, Text, FlatList, StyleSheet, ActivityIndicator, TextInput, RefreshControl } from 'react-native';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../navigation/types';
 import { useAppDispatch, useAppSelector } from '../hooks';
 import { getProducts, setQuery } from '../store/slices/productsSlice';
 import { ProductCard } from '../components/ProductCard';
 
-interface Props {
-  navigation: NativeStackNavigationProp<RootStackParamList, 'MainTabs'>;
-}
-
-const HomeScreen = ({ navigation }: Props) => {
+const HomeScreen = ({ navigation }) => {
   const dispatch = useAppDispatch();
   const { items, isLoading, isFetchingMore, hasMore, error, query } = useAppSelector((state) => state.products);
 
@@ -22,7 +16,7 @@ const HomeScreen = ({ navigation }: Props) => {
     return () => clearTimeout(timeoutId);
   }, [query, dispatch]);
 
-  const handleSearch = (text: string) => {
+  const handleSearch = (text) => {
     dispatch(setQuery(text));
   };
 

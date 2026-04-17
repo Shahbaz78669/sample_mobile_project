@@ -1,18 +1,7 @@
-import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
-import { Product } from '../../types';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { fetchProducts } from '../../services/api';
 
-interface ProductsState {
-  items: Product[];
-  isLoading: boolean;
-  isFetchingMore: boolean;
-  error: string | null;
-  skip: number;
-  hasMore: boolean;
-  query: string;
-}
-
-const initialState: ProductsState = {
+const initialState = {
   items: [],
   isLoading: false,
   isFetchingMore: false,
@@ -24,8 +13,8 @@ const initialState: ProductsState = {
 
 export const getProducts = createAsyncThunk(
   'products/getProducts',
-  async ({ query, refresh = false }: { query?: string; refresh?: boolean }, { getState }) => {
-    const state = getState() as { products: ProductsState };
+  async ({ query, refresh = false }, { getState }) => {
+    const state = getState();
     const currentQuery = query !== undefined ? query : state.products.query;
     const skip = refresh ? 0 : state.products.skip;
     const limit = 20;
@@ -39,7 +28,7 @@ const productsSlice = createSlice({
   name: 'products',
   initialState,
   reducers: {
-    setQuery(state, action: PayloadAction<string>) {
+    setQuery(state, action) {
       state.query = action.payload;
     },
   },

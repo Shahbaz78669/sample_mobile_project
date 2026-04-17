@@ -1,10 +1,9 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
-import { DetailScreenProps } from '../navigation/types';
 import { useAppDispatch, useAppSelector } from '../hooks';
 import { toggleFavorite } from '../store/slices/favoritesSlice';
 
-const DetailScreen = ({ route }: DetailScreenProps) => {
+const DetailScreen = ({ route }) => {
   const { product } = route.params;
   const dispatch = useAppDispatch();
   const favorites = useAppSelector((state) => state.favorites.favorites);
@@ -31,7 +30,7 @@ const DetailScreen = ({ route }: DetailScreenProps) => {
           <View style={styles.badge}>
             <Text style={styles.badgeText}>{product.category}</Text>
           </View>
-          <Text style={styles.rating}>⭐ {product.rating.toFixed(1)}</Text>
+          <Text style={styles.rating}>⭐ {Number(product.rating || 0).toFixed(1)}</Text>
         </View>
 
         <Text style={styles.sectionTitle}>Description</Text>

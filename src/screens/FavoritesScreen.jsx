@@ -1,15 +1,9 @@
 import React from 'react';
 import { View, Text, FlatList, StyleSheet } from 'react-native';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../navigation/types';
 import { useAppSelector } from '../hooks';
 import { ProductCard } from '../components/ProductCard';
 
-interface Props {
-  navigation: NativeStackNavigationProp<RootStackParamList, 'MainTabs'>;
-}
-
-const FavoritesScreen = ({ navigation }: Props) => {
+const FavoritesScreen = ({ navigation }) => {
   const favorites = useAppSelector((state) => state.favorites.favorites);
 
   return (

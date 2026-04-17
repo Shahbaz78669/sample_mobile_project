@@ -1,11 +1,6 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Product } from '../../types';
+import { createSlice } from '@reduxjs/toolkit';
 
-interface FavoritesState {
-  favorites: Product[];
-}
-
-const initialState: FavoritesState = {
+const initialState = {
   favorites: [],
 };
 
@@ -13,7 +8,7 @@ const favoritesSlice = createSlice({
   name: 'favorites',
   initialState,
   reducers: {
-    toggleFavorite(state, action: PayloadAction<Product>) {
+    toggleFavorite(state, action) {
       const existingIndex = state.favorites.findIndex(item => item.id === action.payload.id);
       if (existingIndex >= 0) {
         state.favorites.splice(existingIndex, 1);

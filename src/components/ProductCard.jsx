@@ -1,13 +1,10 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
-import { Product } from '../types';
 
-interface ProductCardProps {
-  product: Product;
-  onPress: () => void;
-}
-
-export const ProductCard = ({ product, onPress }: ProductCardProps) => {
+/**
+ * @param {{ product: Object, onPress: Function }} props
+ */
+export const ProductCard = ({ product, onPress }) => {
   return (
     <TouchableOpacity style={styles.card} onPress={onPress} activeOpacity={0.7}>
       <Image source={{ uri: product.thumbnail }} style={styles.image} resizeMode="cover" />
@@ -23,7 +20,7 @@ export const ProductCard = ({ product, onPress }: ProductCardProps) => {
           {product.description}
         </Text>
         <View style={styles.footer}>
-          <Text style={styles.rating}>⭐ {product.rating.toFixed(1)}</Text>
+          <Text style={styles.rating}>⭐ {Number(product.rating || 0).toFixed(1)}</Text>
           <Text style={styles.stock}>{product.stock > 0 ? `${product.stock} in stock` : 'Out of stock'}</Text>
         </View>
       </View>
