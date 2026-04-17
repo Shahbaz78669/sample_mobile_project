@@ -27,6 +27,12 @@ Hello! 👋 This is my submission for the mobile app assessment. I built this sa
    npx react-native run-ios
    ```
 
+## ✅ Testing & Quality
+
+I have ensured the codebase maintains high standards before presentation:
+- **Linting**: The codebase is configured with `ESLint` applying strict rules. You can verify there are zero warnings or errors by running `npm run lint`.
+- **Unit Testing**: `Jest` is fully configured alongside Babel to properly handle ES modules and JSX transpilation within the testing environment without throwing unexpected token errors. You can verify the root tests pass cleanly by running `npm run test`. 
+
 ## 🛠️ Key Technical Decisions
 - **React Native CLI & ES6 Javascript**: Bootstrapped using standard React Native (no Expo) and written entirely in clean, modern ES6+ JavaScript to demonstrate a strong foundational grasp of React architectures without relying on TypeScript magic.
 - **Redux Toolkit & Persistence**: I chose Redux Toolkit to reduce boilerplate when setting up the store and thunks for fetching. I paired it with `@react-native-async-storage/async-storage` precisely to ensure the user's favorites array safely survives app restarts.
@@ -35,7 +41,7 @@ Hello! 👋 This is my submission for the mobile app assessment. I built this sa
 
 ## 💡 Improvements with More Time
 - **Enhanced Data Caching**: I’d introduce RTK Query or React Query to handle caching server states automatically, reducing unnecessary calls.
-- **Unit Testing**: Given more time, I would set up `Jest` and `@testing-library/react-native` to cover standard user flows (like ensuring the favorite button effectively mutates the Redux store) and test edge cases on the API service level.
+- **Detailed Integration Testing**: I would expand on the base Jest setup to cover full user-interaction flows inside `@testing-library/react-native`. 
 - **Image Optimization**: Using an image cache handler like `react-native-fast-image` to prevent re-fetching large image binaries repeatedly across list scroll boundaries.
 - **Offline Mode Detection**: Tapping into `NetInfo` to notify the user if they lost connection while scrolling.
 
